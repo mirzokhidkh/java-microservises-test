@@ -6,12 +6,13 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 
 
-@FeignClient("demo2")
+@FeignClient(name = "demo2")
 interface Demo2Service {
 
-    @GetMapping
+    @GetMapping("/api/book")
     fun hello(): String
 
-    @PostMapping("message/{id}")
+//    @PostMapping("api/demo2/message/{id}")
+    @PostMapping("/api/book/message/{id}")
     fun message(@PathVariable id: Long): MessageDemo2Dto
 }

@@ -18,7 +18,7 @@ fun main(args: Array<String>) {
     runApplication<Demo1Application>(*args)
 }
 
-@RequestMapping("/demo1")
+@RequestMapping("/api/student")
 @RestController
 class TestController(private val demo2Service: Demo2Service) {
 
@@ -27,7 +27,7 @@ class TestController(private val demo2Service: Demo2Service) {
         return "Hello from Demo-1 and ${demo2Service.hello()}"
     }
 
-    @GetMapping("message")
+    @GetMapping("/message")
     fun message(id: Long): MessageDto {
         val responseFromDemo2 = demo2Service.message(id)
         return MessageDto(responseFromDemo2.id, responseFromDemo2.message, Date().time)
